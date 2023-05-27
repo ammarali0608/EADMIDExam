@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import PollDisplay from "./Components/PollDisplay";
+import { useState } from "react";
 
 function App() {
+  const [votes, setVotes] = useState({
+    javaScript: 0,
+    python: 0,
+    java: 0,
+    Cs: 0,
+  });
+  const changeVOtes = (votes) => {
+    setVotes(votes);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Polling App</h1>
+      <PollDisplay votes={votes} changeVotes={changeVOtes} />
     </div>
   );
 }
