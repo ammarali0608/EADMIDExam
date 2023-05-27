@@ -24,25 +24,7 @@ function UserParticipation({ choices, changeVotes, Q, fun }) {
             <label htmlFor={val.label}>{val.label}</label>
           </div>
         ))}
-        <button
-          onClick={() => {
-            let q = Q;
-            let { choices } = q;
-
-            choices.map((val) => {
-              console.log(val.label);
-              if (val.label === ans) {
-                console.log(ans);
-                val.votes = val.votes + 1;
-              }
-            });
-
-            changeVotes(q);
-            fun();
-          }}
-        >
-          Submit
-        </button>
+        <button onClick={() => {}}>Submit</button>
       </center>
     </div>
   );
