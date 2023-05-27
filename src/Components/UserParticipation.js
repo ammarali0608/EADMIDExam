@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function UserParticipation({ choices, changeVotes, Q }) {
+function UserParticipation({ choices, changeVotes, Q, fun }) {
   const [ans, setAns] = useState();
   const [c, setC] = useState(true);
   // console.log(ans);
@@ -38,6 +38,7 @@ function UserParticipation({ choices, changeVotes, Q }) {
             });
 
             changeVotes(q);
+            fun();
           }}
         >
           Submit

@@ -4,10 +4,11 @@ import PollDisplay from "./Components/PollDisplay";
 import { useState } from "react";
 import UserParticipation from "./Components/UserParticipation";
 import AnotherUserParticipation from "./Components/AnotherUserParticipation";
+import ThankyouMessage from "./Components/ThankyouMessage";
 
 function App() {
   const [start, setstart] = useState(false);
-  const [us, setUs] = useState(false);
+  const [t, sett] = useState(false);
   const [Q, setQ] = useState({
     question: "What is your favorite programming language?",
 
@@ -32,22 +33,33 @@ function App() {
   };
   const started = () => {
     setstart(true);
+    sett(false);
+  };
+
+  const thanks = () => {
+    sett(true);
+    setstart(false);
   };
   return (
     <div className="App">
       <h1>Polling App</h1>
 
       <PollDisplay Q={Q} choices={Q.choices} />
-      <div></div>
+      <br />
+
       {start ? (
         <UserParticipation
           choices={Q.choices}
           changeVotes={changeVOtes}
           Q={Q}
+          fun={thanks}
         />
       ) : (
         <></>
       )}
+      <br />
+      {t ? <ThankyouMessage /> : <></>}
+      <br />
 
       <AnotherUserParticipation fun={started} />
     </div>
