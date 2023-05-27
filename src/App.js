@@ -3,6 +3,7 @@ import "./App.css";
 import PollDisplay from "./Components/PollDisplay";
 import { useState } from "react";
 import UserParticipation from "./Components/UserParticipation";
+import AnotherUserParticipation from "./Components/AnotherUserParticipation";
 
 function App() {
   const [start, setstart] = useState(false);
@@ -29,6 +30,9 @@ function App() {
     setQ(r);
     forceUpdate();
   };
+  const started = () => {
+    setstart(true);
+  };
   return (
     <div className="App">
       <h1>Polling App</h1>
@@ -45,13 +49,7 @@ function App() {
         <></>
       )}
 
-      <button
-        onClick={() => {
-          setstart(true);
-        }}
-      >
-        New User
-      </button>
+      <AnotherUserParticipation fun={started} />
     </div>
   );
 }
