@@ -62,6 +62,7 @@ function App() {
       <br />
 
       <AnotherUserParticipation fun={started} />
+      <br />
     </div>
   );
 }
